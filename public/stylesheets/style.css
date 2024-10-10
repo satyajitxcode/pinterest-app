@@ -142,6 +142,8 @@ hr {
   margin-left: 25%;
 }
 .upbtn{
+  text-decoration: none;
+  color: black;
   position: relative;
   top: 50px;
   left: 140px;
@@ -149,7 +151,7 @@ hr {
   font-weight: 700;
   text-align: center;
   width: 126px;
-  padding: 11px 0px;
+  padding: 11px 20px;
   background-color: rgb(241, 236, 236);
   border-radius: 20px;
 }
