@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 const userModel = require("./users");
 const postModel = require("./post");
+const passport = require('passport');
+const localStrategy = require('passport-local');
+passport.authenticate(new localStrategy(userModel.authenticate()));
 
 
 /* GET home page. */
@@ -9,26 +12,41 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// first make a create user route ** I am learning data association
-// router.get('/createUser', async function(req, res, next) {
-//   let createdUser = await userModel.create({
-//     username: "satyajit",
-//     password: "vitap",
-//     posts: [],
-//     email: "satya@gmail.com",
-//     fullName: "satyajit"
-//   });
+router.get('/profile', isLoggedIn, (req, res) => {
+  res.render('index', { title: 'Express' });
+});
 
-//   res.send(createdUser);
-// });
+router.post('/register', (req, res) => {
+  const { username, email, fullname } = req.body;
+  const userData = new userModel({ username, email, fullName: fullname });
 
-// router.get('/createPost', async function(req, res, next) {
-//   let createdPost = await postModel.create({
-//     postText: "hello everyone",
-//   });
+  // Add logic to save user or handle response
+  userModel.register(userData, req.body.password).then(()=>{
+    passport.authenticate("local")(req,res,()=>{
+      res.redirect("/profile");
+    })
+  })
+});
 
-//   res.send(createdPost);
-// });
+router.post('/login', passport.authenticate("local", {sucessRedirect:"/profile", failure:"/"}), (req, res) =>{
+  
+});
+
+router.get('/logout', function(req, res, next){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+
+function isLoggedIn(req, res, next){
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/");
+}
+
+
 
 
 
