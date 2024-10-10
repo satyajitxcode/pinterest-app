@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const plm = require('passport-local-mongoose');
+
+
 
 mongoose.connect("mongodb://127.0.0.1:27017/PinterestAppPractice");
 
@@ -31,6 +34,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 }, { timestamps: true }); // This adds createdAt and updatedAt timestamps
+
+userSchema.plugin(plm);
 
 const User = mongoose.model('User', userSchema);
 
