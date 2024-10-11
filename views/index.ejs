@@ -4,12 +4,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: gray;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .container {
+      background-color: white;
+      width: 80%;
+      max-width: 480px;
+      height: auto;
+      padding: 20px;
+      position: absolute;
+      margin: auto;
+      top: 10%;
+      left: 0;
+      right: 0;
+      border-radius: 10px;
+      box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.5);
+    }
+    .content {
+      text-align: center;
+    }
+    .img1 {
+      width: 70px;
+      margin-bottom: 20px;
+    }
+    .header {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 20px 0;
+    }
+    .detail {
+      width: 100%;
+      height: 48px;
+      margin: 10px 0;
+      padding: 15px;
+      font-size: 15px;
+      color: gray;
+      border: 2px solid rgb(218, 214, 214);
+      border-radius: 15px;
+    }
+    .detail:focus {
+      box-shadow: 0px -7px 3px -2px rgba(15, 91, 231, 0.4),
+        0px 7px 3px -2px rgba(15, 91, 231, 0.4),
+        7px 0px 3px -2px rgba(15, 91, 231, 0.4),
+        -7px 0px 3px -2px rgba(15, 91, 231, 0.4);
+      outline: none;
+    }
+    h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin: 10px 0;
+      text-align: right;
+    }
+    .btn {
+      width: 100%;
+      height: 40px;
+      border: hidden;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    .int {
+      background-color: #f30d19;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .int:hover {
+      background-color: #df0812;
+    }
+    .or {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+    .fbk, .ggl {
+      background-color: rgb(9, 128, 240);
+      margin: 5px 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+    }
+    .ggl {
+      background-color: #ccc;
+      color: black;
+    }
+    .ggl:hover {
+      background-color: #a0a0a0;
+    }
+    footer p {
+      font-size: 12px;
+      margin: 10px;
+      opacity: 0.7;
+    }
+    footer p:last-child {
+      opacity: 1;
+    }
+    hr {
+      width: 50%;
+      opacity: 0.4;
+      margin-left: 25%;
+    }
+    .upbtn {
+      text-decoration: none;
+      color: black;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 11px 20px;
+      background-color: rgb(241, 236, 236);
+      border-radius: 20px;
+    }
+  </style>
 </head>
-<link rel="stylesheet" href="/stylesheets/style.css">
 <body>
   <div class="container">
     <div class="content">
-      <!--pinterest logo-->
+      <!-- Pinterest logo -->
       <img src="https://i.pinimg.com/originals/d3/d1/75/d3d175e560ae133f1ed5cd4ec173751a.png" alt="pin logo" class="img1" />
       <p class="header">Make account to see more</p>
 
@@ -22,18 +144,12 @@
       <button class="btn int">Log in</button>
       <p class="or">OR</p>
       <button class="btn fbk">
-        <i
-          class="fab fa-facebook fa-lg"
-          style="color: white; padding-right: 10px"
-        ></i
-        ><a href="#">Continue with Facebook</a></button
-      ><br />
+        <i class="fab fa-facebook fa-lg" style="color: white; padding-right: 10px"></i>
+        Continue with Facebook
+      </button><br />
       <button class="btn ggl">
-        <i
-          class="fab fa-google"
-          style="color: rgb(11, 241, 22); padding-right: 10px"
-        ></i
-        ><a href="#">Continue with Google</a>
+        <i class="fab fa-google" style="color: rgb(11, 241, 22); padding-right: 10px"></i>
+        Continue with Google
       </button>
 
       <footer>
@@ -42,11 +158,9 @@
           <b>Terms of Service, Privacy policy.</b>
         </p>
         <hr />
-        <p>Not on Pinterest yet? Sign up</p>
+        <p>Not on Pinterest yet? <a href="#" class="upbtn">Sign up</a></p>
       </footer>
     </div>
   </div>
-  <a class="upbtn" href="">Sign up</a>
-
 </body>
 </html>
